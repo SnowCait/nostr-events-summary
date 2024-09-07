@@ -1,0 +1,34 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "npm:nostr-fetch": "npm:nostr-fetch@0.15.1"
+    },
+    "npm": {
+      "@noble/curves@1.6.0": {
+        "integrity": "sha512-TlaHRXDehJuRNR9TfZDNQ45mMEd5dwUwmicsafcIX4SsNiqnCHKjE/1alYPd/lDRVhxdhUAlv8uEhMCI5zjIJQ==",
+        "dependencies": {
+          "@noble/hashes": "@noble/hashes@1.5.0"
+        }
+      },
+      "@noble/hashes@1.5.0": {
+        "integrity": "sha512-1j6kQFb7QRru7eKN3ZDvRcP13rugwdxZqCjbiAVZfIJwgj2A65UmT4TgARXGlXgnRkORLTDTrO19ZErt7+QXgA==",
+        "dependencies": {}
+      },
+      "@nostr-fetch/kernel@0.15.1": {
+        "integrity": "sha512-+KX+n3v9ha2ki5BGL12isw+BrlK36aANkDD98SQMzt+5VFRCnfkFiJSkx+kjAKm0BXdA3YCTRhrqVOYEDuvohQ==",
+        "dependencies": {
+          "@noble/curves": "@noble/curves@1.6.0",
+          "@noble/hashes": "@noble/hashes@1.5.0"
+        }
+      },
+      "nostr-fetch@0.15.1": {
+        "integrity": "sha512-SyXdAsUM3qnuoz35tyX3mwxY1BU5sBsr1JCIMXiV5Ej7uSkyBjnBkzsXH5CYq0p42hI9z6xwfuFqnkvBsaTmJA==",
+        "dependencies": {
+          "@nostr-fetch/kernel": "@nostr-fetch/kernel@0.15.1"
+        }
+      }
+    }
+  },
+  "remote": {}
+}

@@ -1,0 +1,21 @@
+name: Run
+
+on:
+  push:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: snow-actions/git-config-user@v1.0.0
+      - run: deno task run
+      - run: git diff --exit-code docs/1984.data.json
+        id: diff
+        continue-on-error: true
+      - run: |
+          git add docs/
+          git commit -m "Update"
+          git push
+        if: steps.diff.outcome == 'failure'

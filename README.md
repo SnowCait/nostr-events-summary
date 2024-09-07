@@ -1,1 +1,1 @@
-# nostr-events-summary
+# Nostr events summary
