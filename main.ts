@@ -40,13 +40,11 @@ for await (const event of iter) {
     }
 }
 
-const summary = Object.fromEntries(
-    [...data].map(([pubkey, ids]) => ({ pubkey, count: ids.size }))
-        .filter(({ count }) => count > threshold)
-        .toSorted(({ count: x }, { count: y }) => y - x).map((
-            { pubkey, count },
-        ) => [pubkey, count]),
-);
+const summary = [...data].map(([pubkey, ids]) => ({ pubkey, count: ids.size }))
+    .filter(({ count }) => count > threshold)
+    .toSorted(({ count: x }, { count: y }) => y - x).map(({ pubkey }) =>
+        pubkey
+    );
 console.log(summary);
 await Deno.writeTextFile(
     dataPath,
