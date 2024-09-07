@@ -3,6 +3,12 @@ name: Run
 on:
   push:
 
+concurrency:
+  group: ${{ github.workflow }}
+
+permissions:
+  contents: write
+
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -10,6 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: snow-actions/git-config-user@v1.0.0
+      - uses: denoland/setup-deno@v1
       - run: deno task run
       - run: git diff --exit-code docs/1984.data.json
         id: diff
